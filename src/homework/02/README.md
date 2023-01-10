@@ -10,3 +10,7 @@
 ### src/homework/02 폴더 내에서 작성해서 제출해주세요
 
 > 테스트시 url `/02` 에서 확인할 수 있습니다.
+
+
+https://user-images.githubusercontent.com/54179672/211547791-ab1b034e-e852-456a-987f-d403d996a5aa.mp4
+
