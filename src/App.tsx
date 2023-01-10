@@ -1,9 +1,18 @@
 import React from "react";
+import { Outlet, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className='App'>
-      <h1>hello world</h1>
+    <div className="App">
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/products">Products</Link>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 }
