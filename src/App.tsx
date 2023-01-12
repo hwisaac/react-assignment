@@ -11,6 +11,9 @@ function App() {
         <li>
           <Link to="02">02</Link>
         </li>
+        <li>
+          <Link to="03">03</Link>
+        </li>
       </ul>
       <Outlet />
     </div>
