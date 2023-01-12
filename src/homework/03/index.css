@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  gap: 10px;
+  padding: 50px;
+}
+
+.container .item {
+  display: flex;
+  flex-direction: column;
+}
+.container .item .list {
+  list-style: none;
+}
+.container .item .list li {
+}
+.container .item .list li .logoImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.container .item .list li .subTitle {
+  display: inline;
+}
+.container .item .list li .text {
+}
+.container .item .list li .link {
+  text-decoration: none;
+  color: #999;
+  font-weight: 700;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  padding: 0 5px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.container .btn {
+  width: 80px;
+  background-color: white;
+  border: 2px solid #666;
+  border-radius: 10px;
+  align-self: center;
+  cursor: pointer;
+}
