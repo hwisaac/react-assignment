@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
+import styled from "styled-components";
+
+const Fruit = styled.div`
+  border: 1px solid black;
+  padding: 10px;
+`;
 
 const Homework = () => {
   const data = [
@@ -12,7 +18,17 @@ const Homework = () => {
     { title: "블루베리", price: 10000, isSoldOut: true },
   ];
 
-  return <>hello</>;
+  return (
+    <>
+      {data
+        .filter((fruit) => !fruit.isSoldOut)
+        .map((fruit) => (
+          <Fruit>
+            과일이름: {fruit.title}, 과일가격: {fruit.price}
+          </Fruit>
+        ))}
+    </>
+  );
 };
 
 export default Homework;
