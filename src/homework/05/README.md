@@ -5,7 +5,7 @@
 ![Snipaste_2023-01-13_22-57-06](https://user-images.githubusercontent.com/54179672/212336788-590cfafb-41d7-47f8-a799-ce709250e5c1.png)
 
 1. `과일`의 데이터가 담긴 배열이 주어집니다. `과일` 객체의 인터페이스 `IFruit` 을 정의하세요
-2. `oldFruits` ( `newFruits` )의 타입을 정의하세요
+2. `oldFruits` 의 타입을 정의하세요
 
 ```jsx
 const oldFruits: IFruit[] = [
