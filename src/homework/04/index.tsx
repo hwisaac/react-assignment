@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 const Homework = () => {
 
-  interface fruit {
+  interface Fruit {
     title:string;
     price: number;
     isSoldOut: boolean;
   }
 
   
-  const data:fruit[] = [
+  const data:Fruit[] = [
     { title: "사과", price: 1000, isSoldOut: false },
     { title: "오렌지", price: 1500, isSoldOut: false },
     { title: "수박", price: 10000, isSoldOut: true },
