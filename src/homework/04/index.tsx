@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import styled from "styled-components";
+import Fruit from "./Fruit";
 
-const Fruit = styled.div`
-  border: 1px solid black;
-  padding: 10px;
-`;
+interface IFruit {
+  title: string;
+  price: number;
+  isSoldOut: boolean;
+}
 
 const Homework = () => {
-  const data = [
+  const data: IFruit[] = [
     { title: "사과", price: 1000, isSoldOut: false },
     { title: "오렌지", price: 1500, isSoldOut: false },
     { title: "수박", price: 10000, isSoldOut: true },
@@ -23,9 +24,7 @@ const Homework = () => {
       {data
         .filter((fruit) => !fruit.isSoldOut)
         .map((fruit) => (
-          <Fruit>
-            과일이름: {fruit.title}, 과일가격: {fruit.price}
-          </Fruit>
+          <Fruit title={fruit.title} price={fruit.price} />
         ))}
     </>
   );
