@@ -1,21 +1,21 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='App'>
-      <ul className={"navigation"}>
+    <div className="App">
+      <ul className={'navigation'}>
         <li>
-          <Link to='01'>01</Link>
+          <Link to="01">01</Link>
         </li>
         <li>
-          <Link to='02'>02</Link>
+          <Link to="02">02</Link>
         </li>
         <li>
-          <Link to='03'>03</Link>
+          <Link to="03">03</Link>
         </li>
         <li>
-          <Link to='04'>04</Link>
+          <Link to="04">04</Link>
         </li>
       </ul>
       <Outlet />
