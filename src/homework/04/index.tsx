@@ -1,15 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import styled from "styled-components";
-
-const Fruit = styled.div`
-  border: 1px solid black;
-  padding: 10px;
-`;
+import styled from 'styled-components';
 
 const Homework = () => {
-  const data = [
+
+  interface Fruit {
+    title:string;
+    price: number;
+    isSoldOut: boolean;
+  }
+
+  
+  const data:Fruit[] = [
     { title: "사과", price: 1000, isSoldOut: false },
     { title: "오렌지", price: 1500, isSoldOut: false },
     { title: "수박", price: 10000, isSoldOut: true },
@@ -19,7 +20,7 @@ const Homework = () => {
   ];
 
   return (
-    <>
+    <Table>
       {data
         .filter((fruit) => !fruit.isSoldOut)
         .map((fruit) => (
@@ -27,8 +28,19 @@ const Homework = () => {
             과일이름: {fruit.title}, 과일가격: {fruit.price}
           </Fruit>
         ))}
-    </>
+    </Table>
   );
 };
+
+const Table = styled.table`
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+`
+
+const Fruit = styled.td`
+  padding: 10px;
+  border-bottom: 1px solid black;
+`
 
 export default Homework;
