@@ -1,11 +1,10 @@
-// import React, {Dispatch, SetStateAction } from 'react'
+import React, {Dispatch, SetStateAction } from 'react'
 
-// interface ModalProps {
-//   setOpenModal: Dispatch<SetStateAction<boolean>>;
-//   openModal: boolean;
-// }
+interface ModalProps {
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
+}
 
-const Modal = ({setOpenModal}) => {
+const Modal = ({setOpenModal} : ModalProps) => {
   
   const handleClick = () => {setOpenModal(false)}
 
