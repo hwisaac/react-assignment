@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 
 const Homework = () => {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState<boolean>(false);
   const onClick = () => {
     setModal(true);
   };

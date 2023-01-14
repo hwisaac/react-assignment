@@ -6,7 +6,12 @@ const Wrap = styled.div`
   padding: 10px;
 `;
 
-const Fruit = ({ title, price }) => {
+interface IProps {
+  title: string;
+  price: number;
+}
+
+const Fruit = ({ title, price }: IProps) => {
   return (
     <Wrap>
       과일이름: {title}, 과일가격: {price}
