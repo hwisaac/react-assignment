@@ -11,7 +11,7 @@ const Container = styled.div`
   background-color: steelblue;
 `;
 
-const Modal = ({ setModal }) => {
+const Modal = ({ setModal }: any) => {
   const onClick = () => {
     setModal(false);
   };
