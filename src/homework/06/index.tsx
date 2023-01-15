@@ -69,11 +69,11 @@ const Homework = () => {
   const [back, setBack] = useState(false)
   const handlePrev = () => {
     setBack(true)
-    setVisible(prev => prev === 1 ? 1 : prev - 1)
+    setVisible(prev => prev === 1 ? 5 : prev - 1)
   }
   const handleNext = () => {
     setBack(false)
-    setVisible((prev) => prev === 5 ? 5 : prev + 1)
+    setVisible((prev) => prev === 5 ? 1 : prev + 1)
   }
   
   return (

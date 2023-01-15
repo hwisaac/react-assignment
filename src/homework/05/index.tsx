@@ -2,19 +2,19 @@ import React from "react";
 
 interface IFruit {
   name: string;
-  price: number
+  price: number;
 }
 
 class Fruits {
-  fruits;
-  constructor(fruits: IFruit[]) {
-    this.fruits =fruits
+  fruits: IFruit[];
+  constructor(inputFruit: IFruit[]) {
+    this.fruits = inputFruit;
   }
-  get () {
+  get () : IFruit[] {
     return this.fruits
   }
-  set(fruits: IFruit[]) {
-    this.fruits = fruits
+  set (newFruits:IFruit[]) : void {
+    this.fruits = newFruits
   }
 }
 
