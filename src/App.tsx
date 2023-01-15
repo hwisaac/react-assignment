@@ -23,6 +23,9 @@ function App() {
         <li>
           <Link to='06'>06</Link>
         </li>
+        <li>
+          <Link to='07'>07</Link>
+        </li>
       </ul>
       <Outlet />
     </div>
