@@ -33,10 +33,10 @@ const newFruits: IFruit[] = [
 ];
 
 const Homework = () => {
-  // const myFruits = new Fruits(oldFruits);
-  // const oldOne = myFruits.get();
-  // myFruits.set(newFruits);
-  // const newOne = myFruits.get();
+  const myFruits = new Fruits(oldFruits);
+  const oldOne = myFruits.get();
+  myFruits.set(newFruits);
+  const newOne = myFruits.get();
 
   return (
     <>

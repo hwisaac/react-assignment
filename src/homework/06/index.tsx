@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Wrapper = styled(motion.div)`
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -33,11 +33,58 @@ const Button = styled.div`
   border: 1px solid black;
 `;
 
+const boxVar = {
+  initial: (back: boolean) => ({
+    opacity: 0,
+    x: back ? -500 : 500,
+    scale: 0,
+  }),
+  animate: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  },
+  exit: (back: boolean) => ({
+    opacity: 0,
+    x: back ? 500 : -500,
+    scale: 0,
+  }),
+};
+
 const Homework = () => {
+  const [visible, setVisible] = useState(1);
+  const [back, setBack] = useState(false);
+
+  const handler = (argument: string) => {
+    if (argument === 'prev' && visible > 1) {
+      setBack(true);
+      setVisible((visible) => visible - 1);
+    }
+    if (argument === 'next' && visible < 6) {
+      setBack(false);
+      setVisible((visible) => visible + 1);
+    }
+  };
+  //   console.log(boxVar.exit(back), back);
+
   return (
     <Wrapper>
-      <Box />
-      <Button>NEXT</Button>
+      <AnimatePresence custom={back}>
+        <Box
+          key={visible}
+          variants={boxVar}
+          initial="initial"
+          exit="exit"
+          animate="animate"
+          custom={back}
+          transition={{ duration: 1 }}
+        >
+          {visible}
+        </Box>
+      </AnimatePresence>
+
+      <Button onClick={() => handler('next')}>NEXT</Button>
+      <Button onClick={() => handler('prev')}>PREV</Button>
     </Wrapper>
   );
 };
