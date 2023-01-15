@@ -34,10 +34,58 @@ const Button = styled.div`
 `;
 
 const Homework = () => {
+  const box = {
+    entry: (isBack: boolean) => ({
+      x: isBack ? -500 : 500,
+      opacity: 0,
+      scale: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+    exit: (isBack: boolean) => ({
+      x: isBack ? 500 : -500,
+      opacity: 0,
+      scale: 0,
+      transition: {
+        duration: 1,
+      },
+    }),
+  };
+
+  const [visible, setVisible] = useState(1);
+  const [isBack, setIsBack] = useState(false);
+
+  const nextClick = () => {
+    setVisible((prev) => (prev === 10 ? 1 : prev + 1));
+    setIsBack(false);
+  };
+  const prevClick = () => {
+    setVisible((prev) => (prev === 1 ? 10 : prev - 1));
+    setIsBack(true);
+  };
+
   return (
     <Wrapper>
-      <Box />
-      <Button>NEXT</Button>
+      <AnimatePresence custom={isBack}>
+        <Box
+          custom={isBack}
+          variants={box}
+          initial="entry"
+          animate="center"
+          exit="exit"
+          key={visible}
+        >
+          {visible}
+        </Box>
+      </AnimatePresence>
+      <Button onClick={prevClick}>PREV</Button>
+      <Button onClick={nextClick}>NEXT</Button>
     </Wrapper>
   );
 };
