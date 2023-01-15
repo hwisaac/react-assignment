@@ -1,6 +1,6 @@
 # class 만들기
 
-> new Product( {...data}) 로 인스턴스를 생성해야 합니다. <br> > `tsconfig.json` 에서 strict모드를 켭니다. (`strict : true`)
+> new Fruits( {...data}) 로 인스턴스를 생성해야 합니다. <br> > `tsconfig.json` 에서 strict모드를 켭니다. (`strict : true`)
 
 ![Snipaste_2023-01-13_22-57-06](https://user-images.githubusercontent.com/54179672/212336788-590cfafb-41d7-47f8-a799-ce709250e5c1.png)
 
