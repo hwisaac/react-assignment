@@ -15,16 +15,16 @@ function Days(nums) {
 // Q2
 function secsToHMS(working) {
   const s = working % 60;
-  const m = parseInt(working / 60, 10) % 60;
-  const h = parseInt(parseInt(working / 60, 10) / 60, 10);
+  const m = parseInt(`${working / 60}`, 10) % 60;
+  const h = parseInt(`${parseInt(`${working / 60}`, 10) / 60}`, 10);
 
   return [h, m, s];
 }
 
 // Q3
-function newtonWithApple() {
-  for (i = 0; i < people.length; i++) {
-    if (people[i] === x) {
+function newtonWithApple(people) {
+  for (let i = 0; i < people.length; i++) {
+    if (people[i] === "apple") {
       return i + 1;
     }
   }
@@ -32,9 +32,26 @@ function newtonWithApple() {
 }
 
 // Q4
-function branching(isLoading) {
-  if (isLoading) {
+function human(name, age) {
+  return {
+    name,
+    age,
+  };
+}
+
+// Q5
+
+function handleQuantity(quantity) {
+  if (quantity < 0) {
+    console.log("에러");
+    return;
   }
+  return quantity - 1;
+}
+
+// Q6
+function gettingOlder(name, age) {
+  return [name, age + 1];
 }
 
 const Homework = () => {
