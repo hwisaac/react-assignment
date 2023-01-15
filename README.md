@@ -11,4 +11,9 @@
 >>>>>>> b9a4bec8ef16ae86e43c62cf9f8b311e4fd297df
 =======
 - 04: https://github.com/hwisaac/react-assignment/tree/master/src/homework/04
->>>>>>> d8bd39124d3cd371614bf41e58447ea05e2021a1
+- 05: https://github.com/hwisaac/react-assignment/tree/master/src/homework/05
+- 06: https://github.com/hwisaac/react-assignment/tree/master/src/homework/06
+- 07: https://github.com/hwisaac/react-assignment/tree/master/src/homework/07
+- 08: https://github.com/hwisaac/react-assignment/tree/master/src/homework/08
+- 09: https://github.com/hwisaac/react-assignment/tree/master/src/homework/09
+- 10: https://github.com/hwisaac/react-assignment/tree/master/src/homework/10
