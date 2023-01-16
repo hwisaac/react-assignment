@@ -25,6 +25,20 @@ class Fruits {
   }
 }
 
+// 정답 코드
+// class Fruits {
+//   fruits: IFruit[];
+//   constructor(private inputFruits: IFruit[]) {
+//     this.fruits = inputFruits;
+//   }
+//   get(): IFruit[] {
+//     return this.fruits;
+//   }
+//   set(newFruits: IFruit[]): void {
+//     this.fruits = newFruits;
+//   }
+// }
+
 const oldFruits: IFruit[] = [
   { name: "apple", price: 1000 },
   { name: "orange", price: 2000 },
