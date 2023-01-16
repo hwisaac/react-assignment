@@ -26,6 +26,13 @@ const Box = styled(motion.div)`
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 330px;
+  gap: 10px;
+`;
+
 const Button = styled.div`
   cursor: pointer;
   padding: 10px;
@@ -33,11 +40,59 @@ const Button = styled.div`
   border: 1px solid black;
 `;
 
+const box = {
+  entry: (back: boolean) => ({
+    x : back? -500 : 500,
+    opacity: 0,
+    scale: 0
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5
+    }
+  },
+  exit: (back:boolean) => ({
+    x: back? 500: -500,
+    opacity: 0,
+    scale: 0,
+    transition: {
+      duration: 0.5
+    }
+  })
+}
+
 const Homework = () => {
+  const [visible, setVisible] = useState(1);
+  const [back, setBack] = useState(false)
+  const handlePrev = () => {
+    setBack(true)
+    setVisible(prev => prev === 1 ? 5 : prev - 1)
+  }
+  const handleNext = () => {
+    setBack(false)
+    setVisible((prev) => prev === 5 ? 1 : prev + 1)
+  }
+  
   return (
     <Wrapper>
-      <Box />
-      <Button>NEXT</Button>
+      <AnimatePresence custom={back}>
+          <Box
+            custom={back}
+            key={visible} 
+            variants={box} 
+            initial='entry'
+            animate='center'
+            exit='exit'>
+              {visible}
+          </Box>
+      </AnimatePresence>
+      <ButtonContainer>
+        <Button onClick={handlePrev}>PREV</Button>
+        <Button onClick={handleNext}>NEXT</Button>
+      </ButtonContainer>
     </Wrapper>
   );
 };
