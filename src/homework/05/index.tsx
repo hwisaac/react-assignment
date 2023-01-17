@@ -11,10 +11,10 @@ class Fruits {
   constructor(fruits: IFruit[]) {
     this.fruits = fruits;
   }
-  get() {
+  get(): IFruit[] {
     return this.fruits;
   }
-  set(fruits: IFruit[]) {
+  set(fruits: IFruit[]): void {
     this.fruits = fruits;
   }
 }

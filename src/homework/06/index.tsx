@@ -34,9 +34,9 @@ const Button = styled.div`
 `;
 
 const boxVar = {
-  initial: (back: boolean) => ({
+  initial: (direction: 1 | -1) => ({
     opacity: 0,
-    x: back ? -500 : 500,
+    x: 500 * direction,
     scale: 0,
   }),
   animate: {
@@ -44,24 +44,24 @@ const boxVar = {
     x: 0,
     scale: 1,
   },
-  exit: (back: boolean) => ({
+  exit: (direction: 1 | -1) => ({
     opacity: 0,
-    x: back ? 500 : -500,
+    x: -500 * direction,
     scale: 0,
   }),
 };
 
 const Homework = () => {
   const [visible, setVisible] = useState(1);
-  const [back, setBack] = useState(false);
+  const [direction, setDirection] = useState(1);
 
   const handler = (argument: string) => {
     if (argument === 'prev' && visible > 1) {
-      setBack(true);
+      setDirection(-1);
       setVisible((visible) => visible - 1);
     }
     if (argument === 'next' && visible < 6) {
-      setBack(false);
+      setDirection(1);
       setVisible((visible) => visible + 1);
     }
   };
@@ -69,14 +69,14 @@ const Homework = () => {
 
   return (
     <Wrapper>
-      <AnimatePresence custom={back}>
+      <AnimatePresence custom={direction}>
         <Box
           key={visible}
           variants={boxVar}
           initial="initial"
           exit="exit"
           animate="animate"
-          custom={back}
+          custom={direction}
           transition={{ duration: 1 }}
         >
           {visible}
