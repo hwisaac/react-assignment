@@ -10,7 +10,6 @@ const myRobot = new Robot();
 
 const Homework = () => {
   const [history, setHistory] = useState<IRobotStatus[]>([myRobot.getStatus()]);
-
   const handleGoBtn = () => {
     myRobot.go();
     setHistory((prev) => [...prev, myRobot.getStatus()]);

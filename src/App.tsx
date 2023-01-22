@@ -2,30 +2,18 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 function App() {
+  const solsNum = 8;
+  const arr = new Array(solsNum).fill(NaN).map((v, i) => i + 1);
   return (
     <div className='App'>
       <ul className={"navigation"}>
-        <li>
-          <Link to='01'>01</Link>
-        </li>
-        <li>
-          <Link to='02'>02</Link>
-        </li>
-        <li>
-          <Link to='03'>03</Link>
-        </li>
-        <li>
-          <Link to='04'>04</Link>
-        </li>
-        <li>
-          <Link to='05'>05</Link>
-        </li>
-        <li>
-          <Link to='06'>06</Link>
-        </li>
-        <li>
-          <Link to='07'>07</Link>
-        </li>
+        {arr.map((el, index) => (
+          <li>
+            <Link to={`${index + 1}`.padStart(2, "0")}>
+              {`${index + 1}`.padStart(2, "0")}
+            </Link>
+          </li>
+        ))}
       </ul>
       <Outlet />
     </div>
