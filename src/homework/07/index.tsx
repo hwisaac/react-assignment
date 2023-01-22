@@ -9,8 +9,8 @@ function Days(nums: number[]): number {
   const y = B / D;
   const leftDays = L - Math.max(x, y);
 
-  return Math.floor(leftDays);
-}
+//   return Math.floor(leftDays);
+// }
 
 // Q2
 function secsToHMS(working: number): number[] {
@@ -18,8 +18,8 @@ function secsToHMS(working: number): number[] {
   const m = parseInt(`${working / 60}`, 10) % 60;
   const h = parseInt(`${parseInt(`${working / 60}`, 10) / 60}`, 10);
 
-  return [h, m, s];
-}
+//   return [h, m, s];
+// }
 
 // Q3
 function newtonWithApple(people: string[]): number {
@@ -43,7 +43,7 @@ function human(name: string, age: number): Human {
   };
 }
 
-// Q5
+// // Q5
 
 function handleQuantity(quantity: number): number | void {
   if (quantity < 0) {
