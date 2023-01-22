@@ -12,3 +12,7 @@
 5. 동영상처럼 작동해야 합니다.
 
 ![](readMeImages/2023-01-22-08-45-01.png)
+
+
+https://user-images.githubusercontent.com/54179672/213894849-23d6e346-0ada-45ac-b965-6bd9183d1a6a.mp4
+
