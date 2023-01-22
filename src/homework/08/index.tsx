@@ -1,15 +1,43 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import styled from 'styled-components';
 
-interface IRobotStatus {}
+interface IRobotStatus {
+  position: number;
+  direction: 'right' | 'left';
+}
 
-class Robot {}
+class Robot {
+  position: IRobotStatus['position'];
+  direction: IRobotStatus['direction'];
+  constructor() {
+    this.position = 0;
+    this.direction = 'right';
+  }
+
+  go() {
+    if (this.direction === 'right') {
+      this.position++;
+    } else {
+      this.position--;
+    }
+  }
+  turn() {
+    this.direction = this.direction === 'right' ? 'left' : 'right';
+  }
+  getStatus(): IRobotStatus {
+    return {
+      position: this.position,
+      direction: this.direction,
+    };
+  }
+}
 const myRobot = new Robot();
 
 const Homework = () => {
   const [history, setHistory] = useState<IRobotStatus[]>([myRobot.getStatus()]);
+
   const handleGoBtn = () => {
     myRobot.go();
     setHistory((prev) => [...prev, myRobot.getStatus()]);
