@@ -1,11 +1,41 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
 import styled from "styled-components";
 
-interface IRobotStatus {}
+interface IRobotStatus {
+  direction : string;
+  position : number;  
+}
 
-class Robot {}
+class Robot {
+  direction : IRobotStatus['direction'];
+  position: IRobotStatus['position'];
+
+  constructor() {
+    this.direction = 'right';
+    this.position = 0;
+  }
+
+  getStatus() {
+    return {
+      position: this.position,
+      direction: this.direction
+    }
+  }
+
+  go() {
+    if(this.direction === 'right') {
+      this.position++;
+    }else{
+      this.position--;
+    }
+  }
+  
+  turn() {
+    this.direction = this.direction ==='right' ? 'left' : 'right'
+  }
+  
+}
+
 const myRobot = new Robot();
 
 const Homework = () => {
