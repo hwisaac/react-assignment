@@ -43,7 +43,7 @@ function human(name: string, age: number): Human {
   };
 }
 
-// Q5
+// // Q5
 
 function handleQuantity(quantity: number): number | void {
   if (quantity < 0) {
