@@ -47,7 +47,6 @@ const Homework = () => {
     myRobot.turn();
     setHistory((prev) => [...prev, myRobot.getStatus()]);
   };
-
   return (
     <>
       <Btn onClick={handleGoBtn}>Go</Btn>
