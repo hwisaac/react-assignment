@@ -48,7 +48,7 @@ const Homework = () => {
   };
   return (
     <>
-      <Btn onClick={handleGoBtn}>Go</Btn>
+      {/* <Btn onClick={handleGoBtn}>Go</Btn>
       <Btn onClick={handleTurnBtn}>Turn</Btn>
       <Btn onClick={() => setHistory([])}>Clear</Btn>
       <ul>
@@ -57,7 +57,7 @@ const Homework = () => {
             {el.direction} {el.position}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </>
   );
 };
