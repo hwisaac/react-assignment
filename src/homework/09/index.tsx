@@ -4,10 +4,26 @@ import styled from "styled-components";
 import MovieCard from "./MovieCard";
 
 export interface IMovie {
-  //
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
 interface ISearchResult {
-  //
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
 }
 
 const getMovies = async (
@@ -22,7 +38,19 @@ const Homework = () => {
   const [searchedMovies, setSearchedMovies] = useState<IMovie[]>([]);
 
   const { fetchNextPage, hasNextPage } = useInfiniteQuery({
-    //
+    queryKey: ["frozen"],
+    queryFn: ({ pageParam = 1 }) => getMovies("frozen", pageParam),
+    getNextPageParam: (lastPage: ISearchResult, allPages: ISearchResult[]) => {
+      if (lastPage.page === lastPage.total_pages) return;
+      return lastPage.page + 1;
+    },
+    onSuccess: (data) => {
+      let result: IMovie[] = [];
+      for (let page of data.pages) {
+        result = [...result, ...page.results];
+      }
+      setSearchedMovies(result);
+    },
   });
 
   return (

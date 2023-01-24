@@ -5,12 +5,12 @@ import { IMovie } from "./index";
 const MovieCard = ({ movie }: { movie: IMovie }) => {
   return (
     <>
-      {/* {movie.poster_path && (
+      {movie.poster_path && (
         <Wrap>
           <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} />
           <span>{movie.title}</span>
         </Wrap>
-      )} */}
+      )}
     </>
   );
 };
