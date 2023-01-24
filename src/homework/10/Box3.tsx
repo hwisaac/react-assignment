@@ -1,10 +1,15 @@
-import { motion } from "framer-motion";
-import React from "react";
-import { RecoilBridge } from "recoil";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import React from 'react';
+import { RecoilBridge } from 'recoil';
+import styled from 'styled-components';
+
+const boxVar = {
+  hover: { scale: 1.2, rotate: 90 },
+  tap: { scale: 0.8, borderRadius: '100%' },
+};
 
 const Box1 = () => {
-  return <Box />;
+  return <Box variants={boxVar} whileHover="hover" whileTap="tap" />;
 };
 
 export default Box1;

@@ -1,14 +1,38 @@
-import { motion } from "framer-motion";
-import React from "react";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import React from 'react';
+import styled from 'styled-components';
+
+const boxVar = {
+  start: {
+    scale: 0,
+  },
+  end: {
+    scale: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const circleVar = {
+  start: {
+    y: 20,
+    scale: 0,
+  },
+  end: {
+    y: 0,
+    scale: 1,
+  },
+};
 
 const Box1 = () => {
   return (
-    <Box>
-      <Circle />
-      <Circle />
-      <Circle />
-      <Circle />
+    <Box variants={boxVar} initial="start" animate="end">
+      <Circle variants={circleVar} />
+      <Circle variants={circleVar} />
+      <Circle variants={circleVar} />
+      <Circle variants={circleVar} />
     </Box>
   );
 };

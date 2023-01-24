@@ -1,9 +1,15 @@
-import { motion } from "framer-motion";
-import React from "react";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import React from 'react';
+import styled from 'styled-components';
 
 const Box1 = () => {
-  return <Box />;
+  return (
+    <Box
+      transition={{ type: 'spring' }}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1, rotate: 180 }}
+    />
+  );
 };
 
 export default Box1;
