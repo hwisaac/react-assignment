@@ -33,6 +33,11 @@ class Robot {
   getStatus(): IRobotStatus {
     return { position: this.position, direction: this.direction };
   }
+
+  clear(): any {
+    this.position = 0;
+    this.direction = "right";
+  }
 }
 
 const myRobot = new Robot();
@@ -51,7 +56,7 @@ const Homework = () => {
     <>
       <Btn onClick={handleGoBtn}>Go</Btn>
       <Btn onClick={handleTurnBtn}>Turn</Btn>
-      <Btn onClick={() => setHistory([])}>Clear</Btn>
+      <Btn onClick={() => setHistory([myRobot.clear()])}>Clear</Btn>
       <ul>
         {history.map((el, index) => (
           <li key={index}>
