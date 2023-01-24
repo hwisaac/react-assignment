@@ -10,3 +10,8 @@
 - queryFn
 - getNextPageParam
 - onSuccess
+
+
+
+https://user-images.githubusercontent.com/54179672/213951068-1b2bd583-c105-4dfe-b1cb-b14ecab4b331.mp4
+
