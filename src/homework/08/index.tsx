@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 interface IRobotStatus {
   position: number;
-  direction: string;
+  direction: "right" | "left";
 }
 
 class Robot {
-  position = 0;
-  direction = "right" || "left";
+  position: IRobotStatus["position"];
+  direction: IRobotStatus["direction"];
   constructor() {
     this.position = 0;
     this.direction = "right";
@@ -16,9 +16,9 @@ class Robot {
 
   go() {
     if (this.direction === "right") {
-      this.position += 1;
+      this.position++;
     } else {
-      this.position -= 1;
+      this.position--;
     }
   }
 
@@ -30,7 +30,7 @@ class Robot {
     }
   }
 
-  getStatus() {
+  getStatus(): IRobotStatus {
     return { position: this.position, direction: this.direction };
   }
 }
@@ -47,7 +47,6 @@ const Homework = () => {
     myRobot.turn();
     setHistory((prev) => [...prev, myRobot.getStatus()]);
   };
-
   return (
     <>
       <Btn onClick={handleGoBtn}>Go</Btn>
