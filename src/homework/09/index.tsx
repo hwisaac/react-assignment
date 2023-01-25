@@ -4,10 +4,27 @@ import styled from "styled-components";
 import MovieCard from "./MovieCard";
 
 export interface IMovie {
-  //
+  adult: boolean
+  backdrop_path: string
+  genre_ids: number[]
+  id: number
+  original_language: string
+  original_title: string
+  overview: string
+  popularity: number
+  poster_path: string
+  release_date: string
+  title: string
+  video: boolean
+  vote_average: number
+  vote_count: number
 }
+
 interface ISearchResult {
-  //
+  page: number;
+  results: IMovie[];
+  total_pages: number;
+  total_results: number;
 }
 
 const getMovies = async (
@@ -18,19 +35,40 @@ const getMovies = async (
     `https://api.themoviedb.org/3/search/movie?api_key=10923b261ba94d897ac6b81148314a3f&query=${title}&page=${pageParam}`
   ).then((res) => res.json());
 
+// const movies = async () => fetch(
+//   'https://api.themoviedb.org/3/search/movie?api_key=10923b261ba94d897ac6b81148314a3f&query=frozen&page=1'
+//   )
+//   .then((res) => res.json())
+//   .then((res) => console.log('movies', res))
+// movies()
+
+
+
 const Homework = () => {
   const [searchedMovies, setSearchedMovies] = useState<IMovie[]>([]);
 
   const { fetchNextPage, hasNextPage } = useInfiniteQuery({
-    //
-  });
+    queryKey: ['movies'], 
+    queryFn: ({pageParam}) => getMovies('frozen', pageParam),
+    getNextPageParam: (data) => {
+      if(data.page < data.total_pages) {
+        return data.page + 1
+      } else return false;
+    },
+    onSuccess: (data) => {
+      setSearchedMovies([
+        ...searchedMovies,
+        ...data.pages.slice(-1)[0].results,
+      ])
+    }
+    });
 
   return (
     <>
       <h1>Frozen</h1>
 
       <Movies>
-        {searchedMovies.map((movie, index) => (
+        {searchedMovies?.map((movie, index) => (
           <MovieCard key={index} movie={movie} />
         ))}
       </Movies>
