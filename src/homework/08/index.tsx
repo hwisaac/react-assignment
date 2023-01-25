@@ -39,18 +39,18 @@ class Robot {
 const myRobot = new Robot();
 
 const Homework = () => {
-  // const [history, setHistory] = useState<IRobotStatus[]>([myRobot.getStatus()]);
-  // const handleGoBtn = () => {
-  //   myRobot.go();
-  //   setHistory((prev) => [...prev, myRobot.getStatus()]);
-  // };
-  // const handleTurnBtn = () => {
-  //   myRobot.turn();
-  //   setHistory((prev) => [...prev, myRobot.getStatus()]);
-  // };
+  const [history, setHistory] = useState<IRobotStatus[]>([myRobot.getStatus()]);
+  const handleGoBtn = () => {
+    myRobot.go();
+    setHistory((prev) => [...prev, myRobot.getStatus()]);
+  };
+  const handleTurnBtn = () => {
+    myRobot.turn();
+    setHistory((prev) => [...prev, myRobot.getStatus()]);
+  };
   return (
     <>
-      {/* <Btn onClick={handleGoBtn}>Go</Btn>
+      <Btn onClick={handleGoBtn}>Go</Btn>
       <Btn onClick={handleTurnBtn}>Turn</Btn>
       <Btn onClick={() => setHistory([])}>Clear</Btn>
       <ul>
@@ -59,7 +59,7 @@ const Homework = () => {
             {el.direction} {el.position}
           </li>
         ))}
-      </ul> */}
+      </ul>
     </>
   );
 };
