@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import styled from "styled-components";
 
-interface IRobotStatus {}
+interface IRobotStatus {
+  //
+}
 
-class Robot {}
+class Robot {
+  //
+}
 const myRobot = new Robot();
 
 const Homework = () => {
