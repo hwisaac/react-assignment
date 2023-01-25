@@ -1,9 +1,22 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import React from "react";
-import styled from "styled-components";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { RecoilBridge } from 'recoil';
+import styled from 'styled-components';
 
 const Box1 = () => {
-  return <Box />;
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 3]);
+  const background = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ['rgb(0,0,0)', 'rgb(255, 255, 255)']
+  );
+  const borderRadius = useTransform(scrollYProgress, [0, 1], ['0', '100%']);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 900]);
+  // useEffect(() => {
+  //   scrollYProgress.onChange(() => console.log(scrollYProgress.get()));
+  // });
+  return <Box style={{ scale, background, borderRadius, rotate }} />;
 };
 
 export default Box1;

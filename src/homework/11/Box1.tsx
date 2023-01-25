@@ -1,11 +1,29 @@
-import { motion } from "framer-motion";
-import React, { useRef } from "react";
-import styled from "styled-components";
+import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
+
+const BoxVar = {
+  hover: {
+    rotateZ: 90,
+  },
+  click: {
+    borderRadius: '100%',
+  },
+};
 
 const Box1 = () => {
+  const constraintsRef = useRef(null);
   return (
-    <BiggerBox>
-      <Box />
+    <BiggerBox ref={constraintsRef}>
+      <Box
+        variants={BoxVar}
+        whileHover="hover"
+        whileTap="click"
+        drag
+        dragConstraints={constraintsRef}
+        dragSnapToOrigin={true}
+        dragElastic={0.1}
+      />
     </BiggerBox>
   );
 };
