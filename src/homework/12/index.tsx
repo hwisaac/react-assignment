@@ -4,6 +4,23 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import styled from "styled-components";
 
+const Homework = () => {
+  return (
+    <Wrapper>
+      <BoxContainer>
+        <Box />
+        <Box />
+        <Box>
+          <Circle />
+        </Box>
+        <Box />
+      </BoxContainer>
+      <Button>Switch</Button>
+    </Wrapper>
+  );
+};
+export default Homework;
+
 const Wrapper = styled(motion.div)`
   background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
   display: flex;
@@ -66,21 +83,3 @@ const Button = styled(motion.button)`
   align-self: center;
   font-weight: 700;
 `;
-
-const Homework = () => {
-  return (
-    <Wrapper>
-      <BoxContainer>
-        <Box />
-        <Box />
-        <Box>
-          <Circle />
-        </Box>
-        <Box />
-      </BoxContainer>
-      <Button>Switch</Button>
-    </Wrapper>
-  );
-};
-
-export default Homework;
