@@ -49,6 +49,24 @@ const Homework = () => {
       },
     }
   );
+
+  // 정답
+  // const { fetchNextPage, hasNextPage } = useInfiniteQuery({
+  //   queryKey: ["frozen"],
+  //   queryFn: ({ pageParam = 1 }) => getMovies("frozen", pageParam),
+  //   getNextPageParam: (lastPage: ISearchResult, allPages: ISearchResult[]) => {
+  //     if (lastPage.page === lastPage.total_pages) return;
+  //     return lastPage.page + 1;
+  //   },
+  //   onSuccess: (data) => {
+  //     let result: IMovie[] = [];
+  //     for (let page of data.pages) {
+  //       result = [...result, ...page.results];
+  //     }
+  //     setSearchedMovies(result);
+  //   },
+  // });
+
   return (
     <>
       <h1>Frozen</h1>
