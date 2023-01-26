@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { motion, useScroll } from "framer-motion";
@@ -10,7 +10,7 @@ import Box3 from "./Box3";
 const Homework = () => {
   return (
     <Wrap>
-      <Box1 />
+      <Box1/>
       <Box2 />
       <Box3 />
     </Wrap>
