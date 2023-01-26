@@ -4,18 +4,66 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import styled from "styled-components";
 
+const boxVars = {
+  hover: {
+    scale: 0.9,
+  },
+};
+
+const btnVars = {
+  ani: (circleSwitch: boolean) => ({
+    background: circleSwitch
+      ? "linear-gradient(135deg, rgb(22, 182, 245), rgb(202, 43, 241)"
+      : "linear-gradient(135deg, rgb(43, 170, 54), rgb(214, 238, 76)",
+    color: circleSwitch ? "#66ff29" : "#5776fff8",
+  }),
+};
+
 const Homework = () => {
+  const [modal, setModal] = useState(false);
+  const [id, setId] = useState("");
+  const [circleSwitch, setCircleSwitch] = useState(false);
+
   return (
     <Wrapper>
       <BoxContainer>
-        <Box />
-        <Box />
-        <Box>
-          <Circle />
-        </Box>
-        <Box />
+        <Box
+          onClick={() => {
+            setModal((prev) => !prev);
+            setId("firstBox");
+          }}
+          layoutId="firstBox"
+          variants={boxVars}
+          whileHover="hover"
+        />
+        <Box>{circleSwitch ? <Circle layoutId="circle" /> : null}</Box>
+        <Box>{circleSwitch ? null : <Circle layoutId="circle" />}</Box>
+        <Box
+          onClick={() => {
+            setModal((prev) => !prev);
+            setId("lastBox");
+          }}
+          layoutId="lastBox"
+          variants={boxVars}
+          whileHover="hover"
+        />
       </BoxContainer>
-      <Button>Switch</Button>
+      <Button
+        custom={circleSwitch}
+        variants={btnVars}
+        animate="ani"
+        onClick={() => setCircleSwitch((prev) => !prev)}
+      >
+        Switch
+      </Button>
+
+      <AnimatePresence>
+        {modal ? (
+          <ModalOverray onClick={() => setModal(false)}>
+            <ModalBox layoutId={id} />
+          </ModalOverray>
+        ) : null}
+      </AnimatePresence>
     </Wrapper>
   );
 };
