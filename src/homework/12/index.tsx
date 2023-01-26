@@ -1,21 +1,47 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import styled from "styled-components";
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Homework = () => {
+  const [clicked, setClicked] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [id, setId] = useState('');
+
   return (
     <Wrapper>
       <BoxContainer>
-        <Box />
-        <Box />
-        <Box>
-          <Circle />
-        </Box>
-        <Box />
+        <Box
+          layoutId="1"
+          onClick={() => {
+            setModal(true);
+            setId('1');
+          }}
+        />
+        <Box>{clicked ? <Circle layoutId="circle" /> : null}</Box>
+        <Box>{!clicked ? <Circle layoutId="circle" /> : null}</Box>
+        <Box
+          layoutId="2"
+          onClick={() => {
+            setModal(true);
+            setId('2');
+          }}
+        />
       </BoxContainer>
-      <Button>Switch</Button>
+      <Button onClick={() => setClicked(!clicked)}>Switch</Button>
+      <AnimatePresence>
+        {modal ? (
+          <ModalOverlay
+            initial={{ backgroundColor: 'rgba(0,0,0,0)' }}
+            animate={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+            exit={{ backgroundColor: 'rgba(0,0,0,0)' }}
+            onClick={() => setModal(false)}
+          >
+            <ModalBox layoutId={id}></ModalBox>
+          </ModalOverlay>
+        ) : null}
+      </AnimatePresence>
     </Wrapper>
   );
 };
@@ -39,26 +65,24 @@ const BoxContainer = styled(motion.div)`
 const Box = styled(motion.div)`
   width: 300px;
   height: 200px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255);
   border-radius: 15px;
   display: flex;
   margin: 5px;
   justify-content: center;
   align-items: center;
 `;
-const ModalOverray = styled.div`
+const ModalOverlay = styled(motion.div)`
   position: fixed;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: black;
-  opacity: 0.2;
 `;
 const ModalBox = styled(Box)`
   position: absolute;
   border: 1px solid red;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255);
   top: 0;
   bottom: 0;
   left: 0;
