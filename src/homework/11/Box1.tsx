@@ -1,4 +1,4 @@
-import { m, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useRef } from "react";
 import styled from "styled-components";
 
