@@ -4,6 +4,11 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import styled from 'styled-components';
 
+const boxVar = {
+  hover: {
+    scale: 0.9,
+  },
+};
 const Homework = () => {
   const [clicked, setClicked] = useState(false);
   const [modal, setModal] = useState(false);
@@ -13,6 +18,8 @@ const Homework = () => {
     <Wrapper>
       <BoxContainer>
         <Box
+          variants={boxVar}
+          whileHover="hover"
           layoutId="1"
           onClick={() => {
             setModal(true);
@@ -22,6 +29,8 @@ const Homework = () => {
         <Box>{clicked ? <Circle layoutId="circle" /> : null}</Box>
         <Box>{!clicked ? <Circle layoutId="circle" /> : null}</Box>
         <Box
+          variants={boxVar}
+          whileHover="hover"
           layoutId="2"
           onClick={() => {
             setModal(true);
