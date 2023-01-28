@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 function App() {
-  const solsNum = 12;
+  const solsNum = 20;
   const arr = new Array(solsNum).fill(NaN).map((v, i) => i + 1);
   return (
     <div className='App'>
