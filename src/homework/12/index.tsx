@@ -47,7 +47,7 @@ const Homework = () => {
             exit={{ backgroundColor: 'rgba(0,0,0,0)' }}
             onClick={() => setModal(false)}
           >
-            <ModalBox layoutId={id}></ModalBox>
+            <ModalBox layoutId={id} onClick={() => setModal(true)}></ModalBox>
           </ModalOverlay>
         ) : null}
       </AnimatePresence>
@@ -87,16 +87,16 @@ const ModalOverlay = styled(motion.div)`
   top: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
 `;
 const ModalBox = styled(Box)`
-  position: absolute;
   border: 1px solid red;
   background-color: rgba(255, 255, 255);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  position: relative;
+  z-index: 100;
 `;
 const Circle = styled(motion.div)`
   width: 100px;
