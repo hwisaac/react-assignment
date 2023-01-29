@@ -1,23 +1,137 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const Homework = () => {
-  const [formMsg, setFormMsg] = useState("");
+  const [formMsg, setFormMsg] = useState('');
+  const [userInfo, setUserInfo] = useState({
+    username : '',
+    email : '',
+    password: ''
+  })
+  const [userInfoValid, setUserInfoValid] = useState(false)
+
+  const {username, email, password} = userInfo
+
+  const usernameRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
+
+ useEffect(() => {
+  if(username.length >= 3 &&
+    username.length <= 10 &&
+    !email.includes('gmail.com') &&
+    password.length >= 8 &&
+    password.length <= 15 
+    ) {
+      setUserInfoValid(true)
+    }
+ }, [userInfo])
+
+  const onValid = () => {
+    if(usernameRef.current) usernameRef.current.value = ''
+    if(emailRef.current) emailRef.current.value = ''
+    if(passwordRef.current) passwordRef.current.value = ''
+    alert('유효한 사용자입니다.')
+    console.log(userInfo)
+  }
+
+  const onInvalid = () => {
+    if(username.length < 3) {
+      setFormMsg('username 길이가 너무 짧습니다')
+      if(usernameRef.current) usernameRef.current.focus()
+    }
+    if(username.length > 10) {
+      setFormMsg('username 길이가 너무 깁니다')
+    }
+    if(email.includes('gmail.com')) {
+      setFormMsg('gmail.com 은 불가능합니다.')
+    }
+    if(password.length < 8) {
+      setFormMsg('password 길이가 너무 짧습니다')
+    }
+    if(password.length > 15) {
+      setFormMsg('password 길이가 너무 깁니다')
+    }
+  }
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+    console.log(userInfoValid)
+    userInfoValid ? onValid() : onInvalid()
+    // onValid()
+    // console.log(userInfo)
+    // console.log(userInfoValid)
+    // if(onValid()) {
+    //   if(usernameRef.current) usernameRef.current.value = ''
+    //   if(emailRef.current) emailRef.current.value = ''
+    //   if(passwordRef.current) passwordRef.current.value = ''
+    //   alert('유효한 사용자입니다.')
+    //   console.log(userInfo)
+    // } else {
+    //   onInvalid()
+    // }
+  }
+
+  const handleChange = (event:any) => {
+    const {name, value} = event.target
+    setUserInfo({...userInfo, [name] : value})
+    // console.log(userInfo)
+  }
+
+
   return (
     <>
-      <form>
-        <input name='username' type='text' placeholder='username' />
-        <input name='email' type='email' placeholder='Email' />
-        <input name='password' type='password' placeholder='Password' />
-        <input type='submit' value='Submit' />
+      <Form onSubmit={handleSubmit}>
+        <Input
+          name="username"
+          type="text"
+          placeholder="username"
+          onChange={handleChange}
+          ref={usernameRef}
+        />
+        <Input
+          name="email"
+          type="email"
+          placeholder="Email"
+          onChange={handleChange}
+          ref={emailRef}
+        />
+        <Input
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+          ref={passwordRef}
+        />
         <Msg>{formMsg}</Msg>
-      </form>
+        <Button>Submit</Button>
+      </Form>
     </>
   );
 };
 
 export default Homework;
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+`
+const Input = styled.input`
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid #271f27;
+`
+
+const Button = styled.button`
+  border-radius: 20px;
+  padding: 10px;
+  color: #fff;
+  border: transparent;
+  background-color: #4450b4;
+`
 const Msg = styled.span`
   color: red;
   font-weight: 700;
