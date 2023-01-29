@@ -4,67 +4,78 @@ import styled from 'styled-components';
 const Homework = () => {
   const [formMsg, setFormMsg] = useState('');
 
-  const [userInfo, setUserInfo] = useState({
-    username : '',
-    email : '',
-    password: ''
-  })
+  // const [userInfo, setUserInfo] = useState({
+  //   username : '',
+  //   email : '',
+  //   password: ''
+  // })
 
-  const {username, email, password} = userInfo
+  // const {username, email, password} = userInfo
 
   const usernameRef = useRef<HTMLInputElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
   const onValid = () => {
+    alert('유효한 사용자입니다.')
+    console.log(usernameRef.current?.value, emailRef.current?.value, passwordRef.current?.value)
     if(usernameRef.current) usernameRef.current.value = ''
     if(emailRef.current) emailRef.current.value = ''
     if(passwordRef.current) passwordRef.current.value = ''
-    alert('유효한 사용자입니다.')
-    console.log(userInfo)
   }
+
 
   const onInvalid = () => {
-    if(username.length < 3) {
-      setFormMsg('username 길이가 너무 짧습니다')
-      if(usernameRef.current) usernameRef.current.focus()
+    if(usernameRef.current) {
+      if(usernameRef.current.value.length < 3) {
+        setFormMsg('username 길이가 너무 짧습니다')
+        if(usernameRef.current) usernameRef.current.focus()
+      }
+      if(usernameRef.current.value.length > 10) {
+        setFormMsg('username 길이가 너무 깁니다')
+        if(usernameRef.current) usernameRef.current.focus()
+      }
     }
-    if(username.length > 10) {
-      setFormMsg('username 길이가 너무 깁니다')
-      if(usernameRef.current) usernameRef.current.focus()
+
+    if(emailRef.current) {
+      if(emailRef.current.value.includes('gmail.com')) {
+        setFormMsg('gmail.com 은 불가능합니다.')
+        if(emailRef.current) emailRef.current.focus()
+      }
     }
-    if(email.includes('gmail.com')) {
-      setFormMsg('gmail.com 은 불가능합니다.')
-      if(emailRef.current) emailRef.current.focus()
-    }
-    if(password.length < 8) {
-      setFormMsg('password 길이가 너무 짧습니다')
-      if(passwordRef.current) passwordRef.current.focus()
-    }
-    if(password.length > 15) {
-      setFormMsg('password 길이가 너무 깁니다')
-      if(passwordRef.current) passwordRef.current.focus()
+
+    if(passwordRef.current) {
+      if(passwordRef.current.value.length < 8) {
+        setFormMsg('password 길이가 너무 짧습니다')
+        if(passwordRef.current) passwordRef.current.focus()
+      }
+      if(passwordRef.current.value.length > 15) {
+        setFormMsg('password 길이가 너무 깁니다')
+        if(passwordRef.current) passwordRef.current.focus()
+      }
     }
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if((username.length >= 3) &&
-      (username.length <= 10) &&
-      (!email.includes('gmail.com')) &&
-      (password.length >= 8) &&
-      (password.length) <= 15 
+    if((usernameRef.current) && (emailRef.current) && (passwordRef.current)) {
+      if((usernameRef.current.value.length >= 3) &&
+      (usernameRef.current.value.length <= 10) &&
+      (!emailRef.current.value.includes('gmail.com')) &&
+      (passwordRef.current.value.length >= 8) &&
+      (passwordRef.current.value.length) <= 15 
       ) {
         onValid()
       } else {
         onInvalid()
       }
+    }
   }
 
-  const handleChange = (event:any) => {
-    const {name, value} = event.target
-    setUserInfo({...userInfo, [name] : value})
-  }
+  // const handleChange = (event:any) => {
+  //   const {name, value} = event.target
+  //   setUserInfo({...userInfo, [name] : value})
+  // }
 
   return (
     <>
@@ -73,21 +84,21 @@ const Homework = () => {
           name="username"
           type="text"
           placeholder="username"
-          onChange={handleChange}
+          // onChange={handleChange}
           ref={usernameRef}
         />
         <Input
           name="email"
           type="email"
           placeholder="Email"
-          onChange={handleChange}
+          // onChange={handleChange}
           ref={emailRef}
         />
         <Input
           name="password"
           type="password"
           placeholder="Password"
-          onChange={handleChange}
+          // onChange={handleChange}
           ref={passwordRef}
         />
         <Msg>{formMsg}</Msg>
