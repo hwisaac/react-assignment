@@ -13,6 +13,7 @@ import Homework09 from "./homework/09";
 import Homework10 from "./homework/10";
 import Homework11 from "./homework/11";
 import Homework12 from "./homework/12";
+import Homework13 from "./homework/13";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "12",
     element: <Homework12 />,
+  },
+  {
+    path: "13",
+    element: <Homework13 />,
   },
 ]);
 
