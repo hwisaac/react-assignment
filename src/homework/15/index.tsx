@@ -48,16 +48,16 @@ const Homework = () => {
           </p>
           {select === "email" ? (
             <input
-              className="w-full block py-2 px-2 border rounded-lg mt-1 focus:outline-orange-500"
+              className="w-full block py-2 px-2 border rounded-lg mt-1 text-sm focus:outline-orange-500"
               type="email"
             />
           ) : (
             <div className="flex items-end mt-1">
-              <button className="px-3 py-2 h-max border rounded-l-lg text-sm bg-slate-50">
+              <button className="px-3 py-2 border rounded-l-lg text-sm bg-slate-50">
                 +82
               </button>
               <input
-                className="w-full block p-2 h-max border rounded-r-lg text-sm focus:outline-orange-500"
+                className="w-full p-2 border rounded-r-lg text-sm focus:outline-orange-500"
                 type="number"
               />
             </div>
