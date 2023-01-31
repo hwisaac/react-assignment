@@ -22,21 +22,21 @@ const Homework = () => {
         <div className="">
           <button
             onClick={() => setSelect("email")}
-            className={`text-sm w-1/2 py-3 text-${
-              select === "email" ? "orange" : "gray"
-            }-500 border-b-2 border-${
-              select === "email" ? "orange" : "gray"
-            }-500`}
+            className={
+              select === "email"
+                ? "text-sm w-1/2 py-3 text-orange-500 border-b-2 border-orange-500"
+                : "text-sm w-1/2 py-3 text-gray-500 border-b-2 border-gray-500"
+            }
           >
             Email
           </button>
           <button
             onClick={() => setSelect("phone")}
-            className={`text-sm w-1/2 py-3  text-${
-              select === "phone" ? "orange" : "gray"
-            }-500 border-b-2 border-${
-              select === "phone" ? "orange" : "gray"
-            }-500`}
+            className={
+              select === "phone"
+                ? "text-sm w-1/2 py-3 text-orange-500 border-b-2 border-orange-500"
+                : "text-sm w-1/2 py-3 text-gray-500 border-b-2 border-gray-500"
+            }
           >
             Phone
           </button>
