@@ -52,10 +52,12 @@ const Homework = () => {
               type="email"
             />
           ) : (
-            <div className="flex items-end">
-              <button className="p-2 h-max border rounded-l-lg ">+82</button>
+            <div className="flex items-end mt-1">
+              <button className="px-3 py-2 h-max border rounded-l-lg text-sm bg-slate-50">
+                +82
+              </button>
               <input
-                className="w-full block p-2 h-max border rounded-r-lg mt-1 focus:outline-orange-500"
+                className="w-full block p-2 h-max border rounded-r-lg text-sm focus:outline-orange-500"
                 type="number"
               />
             </div>
