@@ -26,7 +26,7 @@ const Homework = () => {
 
 
   const onInvalid = () => {
-    if(usernameRef.current) {
+    if(usernameRef.current instanceof HTMLInputElement) {
       if(usernameRef.current.value.length < 3) {
         setFormMsg('username 길이가 너무 짧습니다')
         if(usernameRef.current) usernameRef.current.focus()
@@ -37,14 +37,14 @@ const Homework = () => {
       }
     }
 
-    if(emailRef.current) {
+    if(emailRef.current instanceof HTMLInputElement) {
       if(emailRef.current.value.includes('gmail.com')) {
         setFormMsg('gmail.com 은 불가능합니다.')
         if(emailRef.current) emailRef.current.focus()
       }
     }
 
-    if(passwordRef.current) {
+    if(passwordRef.current instanceof HTMLInputElement) {
       if(passwordRef.current.value.length < 8) {
         setFormMsg('password 길이가 너무 짧습니다')
         if(passwordRef.current) passwordRef.current.focus()
