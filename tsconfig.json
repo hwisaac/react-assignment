@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src", "asmt-solution/sol13", "asmt-solution/sol13", "src/14"]
 }

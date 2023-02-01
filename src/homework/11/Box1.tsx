@@ -2,10 +2,22 @@ import { motion } from "framer-motion";
 import React, { useRef } from "react";
 import styled from "styled-components";
 
+const variants = {
+  start: {},
+  end: {},
+  hover: {
+    rotateZ: 360
+  },
+  click: {
+    borderRadius: '100px'
+  }
+}
+
 const Box1 = () => {
+  const biggerBoxRef = useRef<HTMLDivElement>(null)
   return (
-    <BiggerBox>
-      <Box />
+    <BiggerBox ref={biggerBoxRef}>
+      <Box drag dragConstraints={biggerBoxRef} dragSnapToOrigin variants={variants} whileHover='hover' whileTap='click'  />
     </BiggerBox>
   );
 };

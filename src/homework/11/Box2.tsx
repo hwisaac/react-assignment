@@ -1,9 +1,16 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 
 const Box2 = () => {
-  return <Box />;
+  const y = useMotionValue(0)
+  const rotateZ = useTransform(y, [-200, 200], [-360, 360])
+  const gradient = useTransform(y, [-200, 0, 200], ['rgba(96, 34, 211, 0.8)', 'rgba(42, 207, 39, 0.8)', 'rgba(227, 23, 23, 0.8)'])
+  useEffect(() => {
+    // y.onChange(() => console.log(y.get()))
+    // scale.onChange(() => console.log(scale.get()))
+  }, [y])
+  return <Box style={{y, rotateZ, background: gradient}} drag='y' dragSnapToOrigin />;
 };
 
 export default Box2;
