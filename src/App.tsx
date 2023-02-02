@@ -8,7 +8,7 @@ function App() {
     <div className='App'>
       <ul className={"navigation"}>
         {arr.map((el, index) => (
-          <li>
+          <li key={index}>
             <Link to={`${index + 1}`.padStart(2, "0")}>
               {`${index + 1}`.padStart(2, "0")}
             </Link>
