@@ -6,8 +6,11 @@ export function cls(...classnames: string[]) {
 }
 
 const Homework = () => {
-  return <div>Homework 16</div>;
+  return (
+    <>
+      <section>Homework 17</section>
+    </>
+  );
 };
 
 export default Homework;
-
