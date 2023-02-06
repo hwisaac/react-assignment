@@ -28,7 +28,7 @@ const PostCard = ({ nickname, title, description }: TPost) => {
           Delete
         </p>
       </div>
-      <div className="flex w-full item-center gap-3">
+      {/* <div className="flex w-full item-center gap-3">
         <p className="w-8 h-8 bg-gray-200 rounded-full"></p>
         <div className="flex w-full">
           <input
@@ -40,7 +40,7 @@ const PostCard = ({ nickname, title, description }: TPost) => {
             <BsArrowReturnLeft />
           </button>
         </div>
-      </div>
+      </div> */}
     </main>
   );
 };
