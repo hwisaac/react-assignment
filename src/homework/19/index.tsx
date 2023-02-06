@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import LiSubCheckbox from "./LiSubCheckbox";
 
 const myData = [
@@ -16,17 +16,44 @@ const myData = [
   },
 ];
 
+interface IData {
+  id: string;
+  text: string;
+}
+
 const Homework = () => {
+  const [select, setSelect] = useState<string[]>([]);
+
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      const ids: string[] = [];
+      myData.forEach((el: IData) => ids.push(el.id));
+      setSelect(ids);
+    } else {
+      setSelect([]);
+    }
+  };
+  console.log(select);
+
   return (
     <>
       <header>
-        <input type='checkbox' />
+        <input
+          onChange={onChange}
+          type="checkbox"
+          checked={select.length === myData.length ? true : false}
+        />
         전체선택
       </header>
       <main>
         <ul>
           {myData.map((item) => (
-            <LiSubCheckbox key={item.id} />
+            <LiSubCheckbox
+              key={item.id}
+              id={item.id}
+              select={select}
+              setSelect={setSelect}
+            />
           ))}
         </ul>
       </main>
