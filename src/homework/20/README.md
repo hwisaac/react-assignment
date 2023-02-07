@@ -2,7 +2,7 @@
 
 1. `useCustomMutation` 훅과 `useCustomQuery` 훅을 만들어 주세요
 2. `useCustomQuery` 는 "GET" 메서드인 fetcher 함수를 매개변수로 갖습니다.
-3. `useCustomQuery` 는 "POST" | "PUT" | "DELETE" 메서드인 fetcher 함수를 매개변수로 갖습니다.
+3. `useCustomMutation` 는 "POST" | "PUT" | "DELETE" 메서드인 fetcher 함수를 매개변수로 갖습니다.
 
 ## 구현 기능
 
