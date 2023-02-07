@@ -18,6 +18,8 @@
 - 16: https://github.com/hwisaac/react-assignment/tree/master/src/homework/16 tailwind 연습2
 - 17: https://github.com/hwisaac/react-assignment/tree/master/src/homework/17 tailwind 연습3
 - 18: https://github.com/hwisaac/react-assignment/tree/master/src/homework/18 tailwind 연습4
+- 19: https://github.com/hwisaac/react-assignment/tree/master/src/homework/19 전체 체크박스 기능 구현하기
+- 20: https://github.com/hwisaac/react-assignment/tree/master/src/homework/20 커스텀훅 만들기
 
 ## 목표 및 기준
 
