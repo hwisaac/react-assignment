@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { getTodos } from './api';
 
-interface ITodo {
+export interface ITodo {
   id: string;
   order: number;
   title: string;
@@ -15,13 +16,18 @@ interface IUseCustomQueryReturn {
   refetch: () => void;
 }
 
-export type TFetcher = () => Promise<ITodo[]>;
-type TUseCustomQuery = (fetcherFn: TFetcher) => IUseCustomQueryReturn;
+type TUseCustomQuery = () => IUseCustomQueryReturn;
 
-const useCustomQuery: TUseCustomQuery = (fetcherFn) => {
+const useCustomQuery: TUseCustomQuery = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<ITodo[]>([]);
-  const refetch = () => {};
+  const refetch = () => {
+    setIsLoading(true);
+    getTodos().then((todos: ITodo[]) => {
+      setData(todos);
+      setIsLoading(false);
+    });
+  };
 
   useEffect(() => {
     refetch();

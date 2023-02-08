@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { deleteTodos } from "./api";
-import useMutation from "./useCustomMutation";
+import React from 'react';
+import styled from 'styled-components';
+import { deleteTodo } from './api';
+import useCustomMutation from './useCustomMutation';
 
 const Btn = styled.div`
   background-color: #ccc;
@@ -18,9 +18,11 @@ interface IDeleteBtnProps {
 }
 
 // 삭제버튼 컴포넌트
-const DeleteBtn = () => {
-  const { mutate: deleteTodoBy } = useMutation(deleteTodos);
-  const handleClick = () => {};
+const DeleteBtn = ({ id, refetch }: IDeleteBtnProps) => {
+  const { mutate: deleteTodoBy } = useCustomMutation(deleteTodo);
+  const handleClick = () => {
+    deleteTodoBy(id)?.then(() => refetch());
+  };
   return <Btn onClick={handleClick}>del</Btn>;
 };
 
