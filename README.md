@@ -20,6 +20,8 @@
 - 18: https://github.com/hwisaac/react-assignment/tree/master/src/homework/18 tailwind 연습4
 - 19: https://github.com/hwisaac/react-assignment/tree/master/src/homework/19 전체 체크박스 기능 구현하기
 - 20: https://github.com/hwisaac/react-assignment/tree/master/src/homework/20 커스텀훅 만들기
+- 21: https://github.com/hwisaac/react-assignment/tree/master/src/homework/21 react-query로 네트워크 자원 아끼기
+- 22: https://github.com/hwisaac/react-assignment/tree/master/src/homework/22 리덕스로 투두리스트 만들기
 
 ## 목표 및 기준
 
