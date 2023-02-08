@@ -15,3 +15,8 @@
 - queryKey
 - queryFn
 - staleTime, cacheTime
+
+
+
+https://user-images.githubusercontent.com/54179672/217478913-93f35a23-96f5-46f5-a798-1f75d7c08132.mp4
+
