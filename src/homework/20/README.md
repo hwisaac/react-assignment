@@ -2,11 +2,7 @@
 
 1. `useCustomMutation` 훅과 `useCustomQuery` 훅을 만들어 주세요
 2. `useCustomQuery` 는 "GET" 메서드인 fetcher 함수를 매개변수로 갖습니다.
-<<<<<<< HEAD
-3. `useMutationQuery` 는 "POST" | "PUT" | "DELETE" 메서드인 fetcher 함수를 매개변수로 갖습니다.
-=======
 3. `useCustomMutation` 는 "POST" | "PUT" | "DELETE" 메서드인 fetcher 함수를 매개변수로 갖습니다.
->>>>>>> eca759ab57adba91ff7db68078995275c345b02b
 
 ## 구현 기능
 
@@ -15,10 +11,7 @@
 3. 투두리스트의 todo를 **삭제**할 수 있어야 합니다.
 4. 추가 또는 삭제를 할 때마다 `refetch`를 하여 **수정사항이 자동으로 반영**되어야 합니다.
 
-
 https://user-images.githubusercontent.com/54179672/217150393-3f03e10a-3973-422a-9906-58bf34b35d13.mp4
-
-
 
 - 3개의 fetcher 함수가 있습니다
 
