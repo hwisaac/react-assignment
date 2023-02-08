@@ -6,7 +6,7 @@ const BASE_URL =
 const HEADERS = {
   "content-type": "application/json",
   apikey: "FcKdtJs202209",
-  username: "KDT3_HwangIsaac",
+  username: "KDT3_KimHyein",
 };
 
 // 삭제 요청하는 api

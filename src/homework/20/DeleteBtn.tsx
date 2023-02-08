@@ -18,9 +18,12 @@ interface IDeleteBtnProps {
 }
 
 // 삭제버튼 컴포넌트
-const DeleteBtn = () => {
+const DeleteBtn = ({ id, refetch }: IDeleteBtnProps) => {
   const { mutate: deleteTodoBy } = useMutation(deleteTodos);
-  const handleClick = () => {};
+  const handleClick = async () => {
+    await deleteTodoBy(id);
+    refetch();
+  };
   return <Btn onClick={handleClick}>del</Btn>;
 };
 

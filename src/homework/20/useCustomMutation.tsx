@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { TFetcher } from "./useCustomQuery";
+import { postTodos, deleteTodos } from "./api";
 
 interface IUseCustomMutationReturn {
-  data: any;
-  isLoading: boolean;
-  refetch: () => Promise<any>;
+  addLoading: boolean;
+  setAddLoading: Dispatch<SetStateAction<boolean>>;
+  mutate: (input: string) => Promise<any>;
 }
-const useCustomMutation = (mutationFn: (input: string) => Promise<any>) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<any>();
+const useCustomMutation = (
+  mutationFn: (input: string) => Promise<any>
+): IUseCustomMutationReturn => {
+  const [addLoading, setAddLoading] = useState(false);
 
-  const mutate = () => {};
+  const mutate = (input: string) => {
+    if (mutationFn === postTodos) {
+      setAddLoading(true);
+      return postTodos(input);
+    } else return deleteTodos(input);
+  };
 
-  return { data, isLoading, mutate };
+  return { addLoading, setAddLoading, mutate };
 };
 
 export default useCustomMutation;
