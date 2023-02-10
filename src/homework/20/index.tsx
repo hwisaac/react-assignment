@@ -19,8 +19,7 @@ interface ITodo {
 
 const Homework = () => {
   const { data, isLoading, refetch } = useCustomQuery();
-  const { isPosting, setIsPosting, mutate } = useCustomMutation(postTodo);
-
+  const { isLoading: isEditing, mutate } = useCustomMutation(postTodo);
   const [input, setInput] = useState('');
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
@@ -29,9 +28,9 @@ const Homework = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // 할일 추가하면 유저가 입력한 값을 받아 mutate함수 실행
-    // 할일 추가되면 isPosting false로 바꾸고 새로 할일 불러오기
-    mutate(input)?.then(() => {
-      setIsPosting(false);
+    // 할일 추가되면 새로 할일 불러오기
+    mutate(input).then((data) => {
+      console.log(data);
       refetch();
     });
     setInput('');
@@ -48,8 +47,7 @@ const Homework = () => {
         />
         <button type="submit">추가</button>
       </form>
-      {isPosting ? <span>todo 추가중...</span> : null}
-      {isLoading ? <span>로딩중 ...</span> : null}
+      {isLoading || isEditing ? <span>로딩중 ...</span> : null}
       <ul>
         {data &&
           data.map((todo) => (

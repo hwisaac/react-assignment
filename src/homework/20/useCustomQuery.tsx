@@ -21,7 +21,7 @@ type TUseCustomQuery = () => IUseCustomQueryReturn;
 const useCustomQuery: TUseCustomQuery = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<ITodo[]>([]);
-  const refetch = () => {
+  const refetch = async () => {
     setIsLoading(true);
     getTodos().then((todos: ITodo[]) => {
       setData(todos);

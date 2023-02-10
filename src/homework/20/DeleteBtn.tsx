@@ -21,7 +21,7 @@ interface IDeleteBtnProps {
 const DeleteBtn = ({ id, refetch }: IDeleteBtnProps) => {
   const { mutate: deleteTodoBy } = useCustomMutation(deleteTodo);
   const handleClick = () => {
-    deleteTodoBy(id)?.then(() => refetch());
+    deleteTodoBy(id).then(() => refetch());
   };
   return <Btn onClick={handleClick}>del</Btn>;
 };
