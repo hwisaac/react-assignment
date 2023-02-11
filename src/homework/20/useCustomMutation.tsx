@@ -3,23 +3,24 @@ import { TFetcher } from "./useCustomQuery";
 import { postTodos, deleteTodos } from "./api";
 
 interface IUseCustomMutationReturn {
-  addLoading: boolean;
-  setAddLoading: Dispatch<SetStateAction<boolean>>;
+  data: any;
+  isLoading: boolean;
   mutate: (input: string) => Promise<any>;
 }
-const useCustomMutation = (
-  mutationFn: (input: string) => Promise<any>
-): IUseCustomMutationReturn => {
-  const [addLoading, setAddLoading] = useState(false);
+const useCustomMutation = (mutationFn: (input: string) => Promise<any>) => {
+  const [data, setData] = useState<any>();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const mutate = (input: string) => {
-    if (mutationFn === postTodos) {
-      setAddLoading(true);
-      return postTodos(input);
-    } else return deleteTodos(input);
+  // then X async await O
+  const mutate = async (input: string) => {
+    setIsLoading(true);
+    const res = await mutationFn(input);
+    setData(res);
+    setIsLoading(false);
+    return res;
   };
 
-  return { addLoading, setAddLoading, mutate };
+  return { data, isLoading, mutate };
 };
 
 export default useCustomMutation;

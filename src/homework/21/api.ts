@@ -1,7 +1,7 @@
 import axios from "axios";
 import mockup from "./mockup.json";
 
-const REACT_APP_YOUTUBE_API_KEY = "AIzaSyBXCxK8OhZQdHbEZhRT-xZA3JRXOvz5nl8";
+const REACT_APP_YOUTUBE_API_KEY = "AIzaSyBxNjhpDuI4YagLOm-Uv4zvsHz-OqINo_w";
 
 const axiosClient = axios.create({
   baseURL: "https://youtube.googleapis.com/youtube/v3",
@@ -45,6 +45,7 @@ export interface ISearchedResult {
   };
   items: ISearchItem[];
 }
+
 let countFetching = 0;
 export const search = (keyword: string): Promise<ISearchedResult> => {
   const mockupData = new Promise<ISearchedResult>((resolve) => {

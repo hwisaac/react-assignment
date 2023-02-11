@@ -19,8 +19,8 @@ const Homework = () => {
 
   const { data, isLoading, refetch } = useCustomQuery(getTodos);
   const {
-    addLoading,
-    setAddLoading,
+    data: addData,
+    isLoading: addLoading,
     mutate: addTodo,
   } = useCustomMutation(postTodos);
 
@@ -34,7 +34,6 @@ const Homework = () => {
     event.preventDefault();
     if (value !== "") {
       await addTodo(value);
-      setAddLoading(false);
       refetch();
       setValue("");
     }
