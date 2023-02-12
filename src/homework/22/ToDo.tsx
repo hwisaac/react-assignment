@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Todo } from './store';
 
 const ToDo = ({ text, onBtnClick, id }: any) => {
   return (

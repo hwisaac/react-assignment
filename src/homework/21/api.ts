@@ -1,10 +1,10 @@
-import axios from "axios";
-import mockup from "./mockup.json";
+import axios from 'axios';
+import mockup from './mockup.json';
 
-const REACT_APP_YOUTUBE_API_KEY = "AIzaSyBXCxK8OhZQdHbEZhRT-xZA3JRXOvz5nl8";
+const REACT_APP_YOUTUBE_API_KEY = 'AIzaSyBXCxK8OhZQdHbEZhRT-xZA3JRXOvz5nl8';
 
 const axiosClient = axios.create({
-  baseURL: "https://youtube.googleapis.com/youtube/v3",
+  baseURL: 'https://youtube.googleapis.com/youtube/v3',
   params: {
     key: REACT_APP_YOUTUBE_API_KEY,
   },
@@ -51,13 +51,13 @@ export const search = (keyword: string): Promise<ISearchedResult> => {
     resolve(mockup);
   });
 
-  if (keyword === "") return mockupData;
+  if (keyword === '') return mockupData;
 
   return axiosClient
     .get(`/search?part=snippet&maxResults=10&q=${keyword}`)
     .then((result) => result.data)
     .catch((error) => {
-      console.log("search에러발생", error);
+      console.log('search에러발생', error);
       return mockupData;
     })
     .finally(() => {

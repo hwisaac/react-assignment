@@ -15,12 +15,9 @@ const useCustomMutation = (
 
   const mutate = async (arg: string) => {
     setIsLoading(true);
-    mutationFn(arg).then((data) => {
-      setData(data);
+    await mutationFn(arg).then(() => {
       setIsLoading(false);
     });
-    console.log(data);
-    return data;
   };
 
   return { data, isLoading, mutate };
