@@ -1,7 +1,7 @@
 import axios from "axios";
 import mockup from "./mockup.json";
 
-const REACT_APP_YOUTUBE_API_KEY = "AIzaSyBxNjhpDuI4YagLOm-Uv4zvsHz-OqINo_w";
+const REACT_APP_YOUTUBE_API_KEY = "AIzaSyBXCxK8OhZQdHbEZhRT-xZA3JRXOvz5nl8";
 
 const axiosClient = axios.create({
   baseURL: "https://youtube.googleapis.com/youtube/v3",
