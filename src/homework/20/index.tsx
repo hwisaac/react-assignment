@@ -29,8 +29,7 @@ const Homework = () => {
     event.preventDefault();
     // 할일 추가하면 유저가 입력한 값을 받아 mutate함수 실행
     // 할일 추가되면 새로 할일 불러오기
-    mutate(input).then((data) => {
-      console.log(data);
+    mutate(input).then(() => {
       refetch();
     });
     setInput('');
