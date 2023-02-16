@@ -21,6 +21,8 @@ import Homework17 from "./homework/17";
 import Homework18 from "./homework/18";
 import Homework19 from "./homework/19";
 import Homework20 from "./homework/20";
+import Homework21 from "./homework/21";
+import Homework22 from "./homework/22";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +109,14 @@ const router = createBrowserRouter([
   {
     path: "20",
     element: <Homework20 />,
+  },
+  {
+    path: "21",
+    element: <Homework21 />,
+  },
+  {
+    path: "22",
+    element: <Homework22 />,
   },
 ]);
 
