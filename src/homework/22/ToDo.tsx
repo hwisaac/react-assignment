@@ -1,10 +1,20 @@
 import React from "react";
 
-const ToDo = ({ text, onBtnClick, id }: any) => {
+interface IToDoProps {
+  text: string;
+  onClickDelete: (id: number) => void;
+  id: number;
+  onClickEdit: (id: number) => void;
+}
+
+const ToDo = ({ text, onClickDelete, id, onClickEdit }: IToDoProps) => {
   return (
     <li>
-      <span>{text}</span>{" "}
-      <button name={text} onClick={() => onBtnClick(id)}>
+      <span>{text}</span>
+      {" :: "}
+      <button onClick={() => onClickEdit(id)}>EDIT</button>
+      {" | "}
+      <button name={text} onClick={() => onClickDelete(id)}>
         DEL
       </button>
     </li>
