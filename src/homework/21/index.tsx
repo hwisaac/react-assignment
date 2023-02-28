@@ -26,8 +26,11 @@ const Homework = () => {
   };
 
   const { data, isLoading } = useQuery<ISearchedResult>(
-    ["keyword", keyword],
-    () => search(keyword)
+    [keyword],
+    () => search(keyword),
+    {
+      staleTime: 1000000,
+    }
   );
 
   return (
