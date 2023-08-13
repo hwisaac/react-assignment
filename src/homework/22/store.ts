@@ -5,6 +5,11 @@ interface TodoState {
   todos: string[];
 }
 
+interface EditData {
+  id: number;
+  editVal: string;
+}
+
 const initialState: TodoState = {
   todos: [],
 };
@@ -19,10 +24,13 @@ export const todoSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<number>) => {
       state.todos.splice(action.payload, 1);
     },
+    editTodo: (state, action: PayloadAction<EditData>) => {
+      state.todos.splice(action.payload.id, 1, action.payload.editVal);
+    },
   },
 });
 
-export const { createTodo, deleteTodo } = todoSlice.actions;
+export const { createTodo, deleteTodo, editTodo } = todoSlice.actions;
 
 export default configureStore({
   reducer: {
